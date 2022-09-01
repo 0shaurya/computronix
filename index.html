@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Computronix</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="icon" href="/imgs/logo.png">
+</head>
+<body>
+	<header id="header">
+		<div class="logo">
+			<img src="/imgs/logo.png" style="width: auto; height: 40px;">
+			<span>Computronix</span>
+		</div>
+		<nav class="top-nav">
+				<a href="/">Home</a>
+				<a href="/html/aboutus.html">About Us</a>
+				<a href="/html/inthenews.html">In The News</a>
+		</nav>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
+		<script defer type="text/javascript">
+		VANTA.TOPOLOGY({
+			el: "#header",
+			mouseControls: true,
+  			touchControls: true,
+			gyroControls: false,
+			minHeight: 200.00,
+			minWidth: 200.00,
+			scale: 1.00,
+			scaleMobile: 1.00,
+			color: 0xa2b59,
+			backgroundColor: 0x0
+		})
+
+		document.getElementsByClassName("vanta-canvas")[0].style.left = "600px";
+		document.getElementsByClassName("vanta-canvas")[0].style.overflow = "hidden";
+		</script>
+	</header>
+
+	<div class="top-menu-separator"></div>
+
+	<div class="main-div">
+		<div class="local">
+			<h1>Your local computer store.</h1>
+		</div>
+		<div class="first-line">
+			<div class="welcome">
+				<span>We take the stress out of owning a computer.<br><br>
+				We have been serving our customers for 12+ years running.<br><br>
+				We employ competent, certified technicians that treat our customers fair and with respect. All of our computers & services come with a worry-free full warranty.<br><br>
+				If you’re looking to save a few bucks and get something that works perfectly, then Computronix is the answer!</span>
+			</div>
+			<div class="carousel">
+				<button class= "left-btn" onclick="move(-1)"><</button>
+				<div class="tps">
+					<button class= "tp" onclick="tp(0)"></button>
+					<button class= "tp" onclick="tp(1)"></button>
+					<button class= "tp" onclick="tp(2)"></button>
+				</div>
+				<button class="right-btn" onclick="move(1)">></button>
+
+				<script type="text/javascript">
+					function sleep(milliseconds) {
+						const date = Date.now();
+						let currentDate = null;
+						do {
+					  		currentDate = Date.now();
+						} while (currentDate - date < milliseconds);
+					}
+
+					img = 1000000
+					imgs = ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
+					"https://cdn.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-1520x800.png",
+					"https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q="]
+
+					document.querySelector(".left-btn").addEventListener("click", move(-1))
+					document.querySelector(".left-btn").addEventListener("click", move(1))
+
+					function move(num) {
+						img = (img + num + imgs.length * 10000) % imgs.length
+						document.querySelector(".carousel").style.backgroundImage = `url(${imgs[img]})`
+					}
+
+					function tp(num) {
+						img = (num + imgs.length * 10000) % imgs.length
+						document.querySelector(".carousel").style.backgroundImage = `url(${imgs[img]})`
+					}
+
+					const test = setInterval(() => move(1), 5000)
+
+					const test2 = setInterval(() => updateTps(), 10)
+
+					function updateTps() {
+						for (var i = 0; i < imgs.length; i++) {
+							if (img%3 == i) {
+								document.getElementsByClassName("tp")[i].style.opacity = 0.7
+								document.getElementsByClassName("tp")[i].style.transform = "scale(1.3, 1.3)"
+								document.getElementsByClassName("tp")[i].style.transition= "0.2s ease-in-out"
+							}
+							if (img%3 != i) {
+								document.getElementsByClassName("tp")[i].style.opacity = 0.3
+								document.getElementsByClassName("tp")[i].style.transform = "scale(1, 1)"
+								document.getElementsByClassName("tp")[i].style.transition= "0.15s"
+							}
+						}
+					}				
+				</script>
+			</div>
+		</div>
+		<div class="second-line">
+			<div class="services-text">
+				<h1>Our Services</h1>
+			</div>
+			<div class="services">
+				<div class="gbox a">Virus Removal</div>
+				<div class="gbox b">Laptop Screen Replacement</div>
+				<div class="gbox c">Repair Windows System Files</div>
+				<div class="gbox d">Laptop Power Plug Repair</div>
+				<div class="gbox e">In-Home Serice or Repair per Hour</div>
+				<div class="gbox f">Spyware Removal</div>
+				<div class="gbox g">New Computer Set-up</div>
+				<div class="gbox h">Adware Removal</div>
+				<div class="gbox i">Data Transfer</div>
+				<div class="gbox j">Clean-up/Optimization</div>
+				<div class="gbox k">Format and Re-Installation of Windows OS</div>
+				<div class="gbox l">Hardware Installation</div>
+				<div class="gbox m">Malware Removal</div>
+				<div class="gbox n">Additional Serices Performed as Well - Just Call and Ask!</div>
+			</div>
+		</div>
+		<div class="third-line">
+			<div class="map">
+				<iframe
+				  width="1000"
+				  height="500"
+				  loading="lazy"
+				  allowfullscreen
+				  referrerpolicy="no-referrer-when-downgrade"
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA8MD8mbhIEFAcAopvXFewd2xI2Po0qsOs
+				    &q=Computronix,MN">
+				</iframe>
+				<p>9201 Lexington Ave North Suite # 3<br>Circle Pines, MN 55014<br><br>763-354-4048<br><br><a href="mailto:computers-mn@live.com">computers-mn@live.com</a><br><br>Open Monday - Friday 11 AM to 6 PM<br>Saturday and Sunday closed</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="bottom-menu-separator"></div>
+	<footer id="footer">
+		<div class="footer-text">
+			<h1>Computronix Computer Store</h1>
+			<p><br></p>
+			<h2>9201 Lexington Ave North Suite #3<br>Circle Pines, MN 55014</h2>
+			<h3>763-354-4048</h3>
+			<p><br></p>
+			<h4>Areas We Serve</h4>
+			<h5>Andover | Anoka | Apple Valley | Arden Hills | Blaine | Bloomington | Brooklyn Center | Brooklyn Park | Burnsville | Centerville | Champlin | Chisago | Circle Pines | Columbus | Coon Rapids | Crystal | Eagan | East Bethel | Eden Prairie | Edina | Elk River | Forest Lake | Fridley | Golden Valley | Ham Lake | Hopkins | Hugo | Inver Grove Heights | Lakeville | Lexington | Lindstrom | Lino Lakes | Little Canada | Long Lake | Maple Grove | Maplewood | Mendota Heights | Minneapolis | Minnetonka | Mound | Mounds View | New Brighton | New Hope | North Oaks | Northfield | Plymouth | Richfield | Robbinsdale | Rosemount | Roseville | Scandia | Shakopee | Shoreview | Shorewood | South St. Paul | Spring Lake Park | St. Anthony | St. Francis | St. Louis Park | St. Michael | St. Paul | Tonka Bay | Twin Cities | Vadnais Heights | Victoria | Wayzata | White Bear Lake | Wyoming</h5>
+			<p><br><br><br></p>
+			<p>Computronix © 2018</p>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+		<script defer type="text/javascript">
+		VANTA.FOG({
+		  el: "#footer",
+		  mouseControls: true,
+		  touchControls: true,
+		  gyroControls: false,
+		  minHeight: 100.00,
+		  minWidth: 200.00,
+		  highlightColor: 0x161689,
+		  midtoneColor: 0x23147f,
+		  lowlightColor: 0x130946,
+		  baseColor: 0x82a0d9,
+		  blurFactor: 0.30,
+		  speed: 0.20
+		})
+		</script>
+	</footer>
+</body>
+</html>
+
