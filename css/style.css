@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap');
 
+html {
+	background-color: var(--footer);
+}
+
 :root {
 	--font: 'Figtree', sans-serif;
 	--blue: rgb(94, 170, 245);
 	--white: #fbfbfd;
 	--black: rgb(0, 0, 0);
+	--footer: rgb(30, 30, 36);
 
 	scrollbar-color: #27292b #141517;
 }
@@ -360,7 +365,7 @@ header {
 
 footer {
 	height: fit-content;
-	background-color: var(--black);
+	background-color: var(--footer);
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
