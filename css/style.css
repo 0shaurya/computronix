@@ -4,6 +4,7 @@
 	--font: 'Figtree', sans-serif;
 	--blue: rgb(94, 170, 245);
 	--white: #fbfbfd;
+	--black: rgb(0, 0, 0);
 
 	scrollbar-color: #27292b #141517;
 }
@@ -126,14 +127,14 @@ header {
 
 .local h1 {
 	position: absolute;
-	margin-left: 50%;
-	transform: translateX(-50%);
-	flex-direction: column;
 
 	font-family: var(--font);
 	letter-spacing: 2px;
 	font-weight: 700;
 	font-size: 48px;
+
+	width: 100%;
+	text-align: center;
 }
 
 .first-line {
@@ -156,11 +157,6 @@ header {
 	margin-left: 15%;
 	margin-top: 50px;
 	margin-bottom: 50px;
-
-/* 	border: 3px solid black;
-	border-color: var(--blue);
-	border-radius: 15px;
-	background: hsla(210, 88%, 66%, .5) */
 }
 
 .welcome span {
@@ -168,12 +164,14 @@ header {
 }
 
 .carousel {
-	border: 2px solid var(--white);
+	border: 2px solid var(--black);
 	width: 40%;
 	margin-left: 5%;
 	margin-right: 15%;
 	margin-top: 50px;
 	margin-bottom: 50px;
+
+	position: relative;
 
 	padding: 10px;
 	border-radius: 10px;
@@ -190,8 +188,10 @@ header {
 .tps {
 	width: calc(fit-content + 15px);
 	height: fit-content;
-	margin-bottom: -48%;
-	display: flex;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, -15px);
 	justify-content: space-between;
 }
 
@@ -265,7 +265,7 @@ header {
 
 .services {
 	height: 400px;
-	width: 60%;
+	width: max(60%, 1000px);
 	display: block;
 	margin: auto;
 	border: 5px solid var(--white);
@@ -278,6 +278,8 @@ header {
 	padding: 10px;
 	grid-template-columns: repeat(16, 1fr);
 	grid-template-rows: [row] auto [row] auto [row] auto [row] auto [row] auto;
+
+	transform: rotate3d(5, 10, 15, 70);
 }
 
 .gbox {
@@ -289,7 +291,7 @@ header {
 	font-size: 20px;	
 
 	background-color: var(--white);
-	color: var(--blue);
+	color: var(--black);
 	border-radius: 8px;
 }
 
@@ -326,22 +328,26 @@ header {
 	border-radius: 10px;
 }
 
+.map iframe {
+	width: 70vw;
+}
+
 .map p {
 	margin-left: 15px;
 	height: fit-content;
 	align-self: center;
 
-	color: var(--blue);
+	color: var(--black);
 	font-family: var(--font);
 	text-align: center;
 	font-weight: 600;
 	font-size: 18px;
 	padding: 10px;
-	border: 2px solid var(--blue);
+	border: 2px solid var(--black);
 }
 
 .map p a {
-	color: var(--blue);
+	color: inherit;
 }
 
 .bottom-menu-separator {
@@ -354,7 +360,7 @@ header {
 
 footer {
 	height: fit-content;
-	background-color: blue;
+	background-color: var(--black);
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
@@ -375,5 +381,124 @@ footer {
 	display: block;
 	margin: auto;
 
-	color: black;
+	color: var(--white);
+}
+
+@media (max-width: 1000px) {
+	header {
+		position: fixed;
+		height: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+	}
+
+	.logo {
+		margin-left: 5px;
+	}
+
+	.top-nav a {
+		font-size: 20px;
+		margin-right: 20px;
+		min-width: max-content;
+	}
+	
+	.top-menu-separator {
+		top: 100px !important;
+	}
+
+	.main-div {
+		margin-top: 100px;
+	}
+
+	.local {
+		height: 100px;
+	}
+
+	.local h1 {
+		font-size: 32px;
+
+	}
+
+	.first-line {
+		flex-direction: column;
+	}
+
+	.welcome {
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		height: fit-content;
+	}
+
+	.carousel {
+		width: 90%;
+		margin-left: 5%;
+		padding-bottom: 50%;
+		margin-top: 0px;
+	}
+
+	.services-text h1 {
+		margin-left: 0%;
+		width: 100%;
+		transform: none;
+		text-align: center;
+	}
+
+	.services {
+		width: 90%;
+		margin-left: 5%;
+		grid-template-columns: 1fr;
+		display: flex;
+		flex-direction: column;
+		height: fit-content;
+	}
+
+	.gbox {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.n {
+		background-color: lightgray;
+	}
+
+	.map {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.map iframe {
+		width: 85vw;
+		margin: auto;
+		display: block;
+	}
+
+	.map p {
+		margin-top: 20px;
+	}
+
+	.footer-text {
+		width: 90%;
+		margin-left: 5%;
+	}
+}
+
+@media (min-width: 1000px) and (max-width: 1350px) {
+	.top-nav a {
+		min-width: max-content;
+		margin-right: 30px;
+	}
+
+	.welcome {
+		margin-left: 5%;
+		width: 30%;
+	}
+
+	.carousel {
+		margin-left: 5%;
+		width: 55%;
+		margin-right: 5%;
+	}
 }
